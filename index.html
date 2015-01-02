@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="styles/all.css"/>
+    <title>SLOT MACHINE</title>
+</head>
+<body>
+    <div id="slot-machine">
+        <div id="reels">
+
+        </div>
+        <button id="reel-btn">Reel</button>
+        <div id="reward-message"></div>
+    </div>
+    <script id="template" type="x-tmpl-mustache">
+    <ul class="reel">
+        {{#items}}
+        <li class="reel-item" id="{{data.id}}" style="top : {{top}}px"><div class="text">{{data.text}}<div></li>
+        {{/items}}
+    </ul>
+    </script>
+    <script src="scripts/vendors/require.min.js" data-main="scripts/main"></script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "name": "SlotMachine",
+    "version": "1.0.1",
+    "dependencies": {
+    },
+    "devDependencies": {
+        "less" : "^2.1.0"
+    }
+}
