@@ -7,6 +7,8 @@ define(["jquery", "mustache", "underscore", "reel", "data"],
         this.reels = [];
         this.rootElement = rootElement || $("#slot-machine");
         this.reelBtn = this.rootElement.find("button");
+        this.reward_message = this.rootElement.find("#reward-message");
+        this.reward_image = this.rootElement.find("#reward-img");
         this.result = [];
         this.init();
         this.bind();
@@ -33,11 +35,9 @@ define(["jquery", "mustache", "underscore", "reel", "data"],
                         index : index,
                         callbacks : {
                             onStartReel : function() {
-                                _self.reelBtn.addClass("disabled");
                             },
                             onFinishReel : function(reel) {
                                 _self.detectWinning(reel);
-                                _self.reelBtn.removeClass("disabled");
                             }
                         }
                     }));
@@ -46,15 +46,16 @@ define(["jquery", "mustache", "underscore", "reel", "data"],
 
         },
         detectWinning : function(reelToDetect) {
-            //console.log(reelToDetect);
-            var _self = this;
-            var reward_msg = $("#reward-message");
+            var _self = this,
+                reward;
             this.result.push(reelToDetect.selectedIndex);
             if(this.result.length === this.reelsCount) {
-                if(_.uniq(this.result).length > 1) {
-                    reward_msg.html("");
-                } else {
-                    reward_msg.html("Congratulation! You just won a " + _self.rewards[_.uniq(this.result)[0]]);
+                _self.reelBtn.removeClass("disabled");
+
+                if(_.uniq(this.result).length === 1) {
+                    reward = _self.rewards[_.uniq(this.result)[0]];
+                    _self.reward_message.html("Congratulation! You just won a " + reward);
+                    _self.reward_image.attr("data-reward", reward);
                 }
             }
         },
@@ -62,6 +63,9 @@ define(["jquery", "mustache", "underscore", "reel", "data"],
             var _self = this;
             this.reelBtn.on("click", function() {
                 _self.result = [];
+                _self.reelBtn.addClass("disabled");
+                _self.reward_message.html("");
+                _self.reward_image.attr("data-reward", "");
                 _.invoke(_self.reels, "reel");
             });
         }

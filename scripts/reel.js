@@ -25,7 +25,7 @@ define(["jquery", "underscore", "reel-item"], function($, _, ReelItem){
             var _self = this;
             this.counter = 0;
             // generate random number
-            this.maxSpins = Math.floor((Math.random()*100)+1) + this.index * 100;
+            this.rounds = Math.floor((Math.random()*10)+1);
 
             if(_self.callbacks.onStartReel) {
                 _self.callbacks.onStartReel(_self);
@@ -35,29 +35,36 @@ define(["jquery", "underscore", "reel-item"], function($, _, ReelItem){
         reel : function() {
             var _self = this;
             this.start();
-            while(this.counter < this.maxSpins) {
+            while(this.counter < this.rounds) {
                 this.counter++;
                 this.moveItems();
             }
+            setTimeout(function() {
+                _self.stop();
+            }, _self.rounds * 100);
+        },
+
+        moveItems : function() {
+            var _self = this;
+            var count = 0;
+            _.invoke(_self.reelItems, "moveUp");
+
+            return this;
+        },
+
+        stop : function() {
+            var _self = this;
             this.selectedTarget = _.find(this.reelItems, function(reelItem) {
-                var element = reelItem.getElement();
-                return $(element).position().top === 0
+                return reelItem.getCurrentPosition() === 0;
             });
 
             this.selectedIndex = this.selectedTarget.getItemIndex();
-            this.stop();
-            //this.stop();
-        },
-        moveItems : function() {
-            var _self = this;
-            console.log()
-            _.invoke(_self.reelItems, "moveUp");
-        },
-        stop : function() {
-            var _self = this;
+
             if(_self.callbacks.onFinishReel) {
                 _self.callbacks.onFinishReel(_self);
             }
+
+            return this;
         }
     }
 

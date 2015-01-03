@@ -23,8 +23,8 @@
     margin-left: 30px;
     border-left: 1px solid #000;
     border-right: 1px solid #000;
-    -webkit-transition: top 0.2s linear;
-}
+/*    -webkit-transition: top 0.2s linear;
+*/}
 
 .reel li#coffee-maker {
     background: url('../images/coffee-maker.jpg') no-repeat 85px 1px gray;
@@ -82,5 +82,30 @@
 #reel-btn.disabled {
     opacity: 0.4;
     prevent-events: none;
+}
+
+#reward-message {
+
+}
+
+#reward-img[data-reward=coffee] {
+    background: url('../images/coffee.jpg') no-repeat 0px 0px transparent;
+}
+
+#reward-img[data-reward=tea] {
+    background: url('../images/tea.jpg') no-repeat 0px 0px transparent; 
+}
+
+#reward-img[data-reward=espresso] {
+    background: url('../images/espresso.jpg') no-repeat 0px 0px transparent;
+}
+
+#reward-img[data-reward=coffee],
+#reward-img[data-reward=tea],
+#reward-img[data-reward=espresso] {
+    background-size: contain;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
 }
 
