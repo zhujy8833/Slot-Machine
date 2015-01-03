@@ -1,9 +1,12 @@
 {
-    "name": "SlotMachine",
-    "version": "1.0.1",
-    "dependencies": {
-    },
-    "devDependencies": {
-        "less" : "^2.1.0"
-    }
+  "name": "SlotMachine",
+  "version": "1.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-less": "~1.0.0",
+    "grunt-contrib-requirejs": "~0.4.4",
+    "grunt-contrib-jasmine": "~0.8.1",
+    "grunt-contrib-watch": "~0.6.1"
+  }
 }

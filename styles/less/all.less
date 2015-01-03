@@ -1,0 +1,119 @@
+@image-url : "../../images";
+
+#slot-machine {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.reel {
+    list-style: none;
+    display: inline-block;
+    padding-left: 0px;
+    width: 30%;
+    border: 1px solid lightgray;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+
+    li {
+        text-transform: capitalize;
+        height: 100px;
+        text-align: center;
+        position: absolute;
+        width: 80%;
+        margin-left: 30px;
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+
+        &#coffee-maker {
+            background: url('@{image-url}/coffee-maker.jpg') no-repeat 85px 1px gray;
+            background-size: 36%;
+        }
+        &#coffee-filter {
+            background: url('@{image-url}/coffee-filter.jpg') no-repeat 95px 1px gray;
+            background-size: 28%;
+        }
+        &#coffee-grounds {
+            background: url('@{image-url}/coffee-grounds.jpg') no-repeat 96px 1px gray;
+            background-size: 28%;
+        }
+
+        &#tea-pot {
+            background: url('@{image-url}/tea-pot.jpg') no-repeat 91px 1px gray;
+            background-size: 32%;
+        }
+
+        &#tea-strainer {
+            background: url('@{image-url}/tea-strainer.jpg') no-repeat 91px 1px gray;
+            background-size: 32%;
+        }
+
+        &#loose-tea {
+            background: url('@{image-url}/loose-tea.jpg') no-repeat 87px 1px gray;
+            background-size: 36%;
+        }
+
+        &#espresso-machine {
+            background: url('@{image-url}/espresso-machine.jpg') no-repeat 89px 1px gray;
+            background-size: 34%;
+        }
+
+        &#espresso-tamper {
+            background: url('@{image-url}/espresso-tamper.jpg') no-repeat 77px 1px gray;
+            background-size: 42%;
+        }
+
+        &#espresso-beans {
+            background: url('@{image-url}/espresso-beans.jpg') no-repeat 87px 1px gray;
+            background-size: 29%;
+        }
+
+        .text {
+            margin-top: 76px;
+        }
+    }
+}
+
+
+#reel-btn {
+
+    &.disabled {
+        opacity: 0.4;
+        pointer-events: none;
+    }
+}
+
+
+#reward-message {
+
+
+
+}
+
+#reward-img {
+
+    &[data-reward=coffee] {
+        background: url('@{image-url}/coffee.jpg') no-repeat 0px 0px transparent;
+    }
+
+    &[data-reward=tea] {
+        background: url('@{image-url}/tea.jpg') no-repeat 0px 0px transparent; 
+    }
+
+    &[data-reward=espresso] {
+        background: url('@{image-url}/espresso.jpg') no-repeat 0px 0px transparent;
+    }
+
+    &[data-reward=coffee],
+    &[data-reward=tea],
+    &[data-reward=espresso] {
+        background-size: contain;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+}
+
+
+
+
