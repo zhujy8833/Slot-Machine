@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "reel"], function($, _, Reel) {
+define(["jquery", "underscore", "Reel"], function($, _, Reel) {
     var ReelItem = function(options) {
         options = options || {};
         var properties = {

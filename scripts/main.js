@@ -7,7 +7,7 @@ require.config({
     }
 });
 
-require(["jquery","slot-machine"],function($,App){
+require(["jquery","SlotMachine"],function($,App){
     $(document).ready(function() {
        new App($("#slot-machine"));
     });

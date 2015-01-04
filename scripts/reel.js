@@ -1,5 +1,5 @@
 //Reel
-define(["jquery", "underscore", "reel-item"], function($, _, ReelItem){
+define(["jquery", "underscore", "ReelItem"], function($, _, ReelItem){
     var Reel = function(options) {
         var _self = this;
         options = options || {};
@@ -46,7 +46,6 @@ define(["jquery", "underscore", "reel-item"], function($, _, ReelItem){
 
         moveItems : function() {
             var _self = this;
-            var count = 0;
             _.invoke(_self.reelItems, "moveUp");
 
             return this;

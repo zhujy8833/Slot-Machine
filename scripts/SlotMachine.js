@@ -2,10 +2,10 @@ define(["jquery", "mustache", "underscore", "reel", "data"],
     function($, Mustache, _, Reel, SlotData){
     var APP = function(rootElement) {
         this.reelData = SlotData;
-        this.rewards = ["coffee", "tea", "espresso"];
+        this.rewardsPool = ["coffee", "tea", "espresso"];
         this.template = $("#template").text();
         this.reels = [];
-        this.rootElement = rootElement || $("#slot-machine");
+        this.rootElement = $(rootElement) || $("#slot-machine");
         this.reelBtn = this.rootElement.find("button");
         this.reward_message = this.rootElement.find("#reward-message");
         this.reward_image = this.rootElement.find("#reward-img");
@@ -51,23 +51,29 @@ define(["jquery", "mustache", "underscore", "reel", "data"],
             this.result.push(reelToDetect.selectedIndex);
             if(this.result.length === this.reelsCount) {
                 _self.reelBtn.removeClass("disabled");
-
                 if(_.uniq(this.result).length === 1) {
-                    reward = _self.rewards[_.uniq(this.result)[0]];
+                    reward = _self.rewardsPool[_.uniq(_self.result)[0]];
                     _self.reward_message.html("Congratulation! You just won a " + reward);
                     _self.reward_image.attr("data-reward", reward);
+                    _self.reward = reward;
                 }
             }
         },
         bind : function() {
             var _self = this;
             this.reelBtn.on("click", function() {
-                _self.result = [];
-                _self.reelBtn.addClass("disabled");
-                _self.reward_message.html("");
-                _self.reward_image.attr("data-reward", "");
+                _self.reset();
                 _.invoke(_self.reels, "reel");
             });
+        },
+        reset : function() {
+            this.result = [];
+            this.reward = undefined;
+            this.reelBtn.addClass("disabled");
+            this.reward_message.html("");
+            this.reward_image.attr("data-reward", "");
+
+            return this;
         }
     };
 
