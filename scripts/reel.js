@@ -11,13 +11,13 @@ define(["jquery", "underscore", "ReelItem"], function($, _, ReelItem){
                 element : $(ele),
                 itemIndex : index,
                 parentElement : $(this.element),
-                height : 100,
+                height : 140,
                 totalItems : $(_self.element).find("li").length
             }));
         });
         this.callbacks = options.callbacks || {};
         this.counter = 0;
-        this.itemHeight = 100;
+        this.itemHeight = 140;
     };
 
     Reel.prototype = {

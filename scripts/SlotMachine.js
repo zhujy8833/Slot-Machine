@@ -17,7 +17,7 @@ define(["jquery", "mustache", "underscore", "reel", "data"],
     APP.prototype = {
         init : function() {
             var _self = this;
-            _self.itemHeight = 100;
+            _self.itemHeight = 140;
             var reelsHolder = _self.rootElement.find("#reels");
             _.each(_self.reelData, function(reel){
                 var array = [];
@@ -53,7 +53,7 @@ define(["jquery", "mustache", "underscore", "reel", "data"],
                 _self.reelBtn.removeClass("disabled");
                 if(_.uniq(this.result).length === 1) {
                     reward = _self.rewardsPool[_.uniq(_self.result)[0]];
-                    _self.reward_message.html("Congratulation! You just won a " + reward);
+                    _self.reward_message.html("Congratulation! You just won a cup of " + reward + "!");
                     _self.reward_image.attr("data-reward", reward);
                     _self.reward = reward;
                 }
@@ -64,6 +64,10 @@ define(["jquery", "mustache", "underscore", "reel", "data"],
             this.reelBtn.on("click", function() {
                 _self.reset();
                 _.invoke(_self.reels, "reel");
+            }).on("mousedown", function() {
+                $(this).addClass("mousedown");
+            }).on("mouseup", function(){
+                $(this).removeClass("mousedown");
             });
         },
         reset : function() {
