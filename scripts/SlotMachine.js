@@ -66,9 +66,12 @@ define(["jquery", "mustache", "underscore", "ReelHolder", "data"],
                 _self.reset();
                 _.invoke(_self.reels, "reel");
             }).on("mousedown", function() {
-                $(this).addClass("mousedown");
-            }).on("mouseup", function(){
-                $(this).removeClass("mousedown");
+                var ele = $(this);
+                ele.addClass("mousedown");
+                $(document).on("mouseup", function(){
+                    ele.removeClass("mousedown");
+                    $(document).off("mouseup");
+                })
             });
         },
         reset : function() {

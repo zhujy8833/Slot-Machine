@@ -140,27 +140,27 @@
   border-radius: 70px;
 }
 .reel li#coffee-maker {
-  background: url('../../images/coffee-maker.jpg') no-repeat 50% 5% #ffffff;
-  background-size: 36%;
+  background: url('../../images/coffee-maker.jpg') no-repeat 50% 6% #ffffff;
+  background-size: 44%;
 }
 .reel li#coffee-filter {
-  background: url('../../images/coffee-filter.jpg') no-repeat 50% -12% #ffffff;
+  background: url('../../images/coffee-filter.jpg') no-repeat 50% 3% #ffffff;
   background-size: 35%;
 }
 .reel li#coffee-grounds {
-  background: url('../../images/coffee-grounds.jpg') no-repeat 50% -60% #ffffff;
-  background-size: 42%;
+  background: url('../../images/coffee-grounds.jpg') no-repeat 50% 0% #ffffff;
+  background-size: 43%;
 }
 .reel li#tea-pot {
   background: url('../../images/tea-pot.jpg') no-repeat 50% 1% #ffffff;
   background-size: 45%;
 }
 .reel li#tea-strainer {
-  background: url('../../images/tea-strainer.jpg') no-repeat 56% -22% #ffffff;
+  background: url('../../images/tea-strainer.jpg') no-repeat 56% 6% #ffffff;
   background-size: 45%;
 }
 .reel li#loose-tea {
-  background: url('../../images/loose-tea.jpg') no-repeat 50% 2% #ffffff;
+  background: url('../../images/loose-tea.jpg') no-repeat 50% 13% #ffffff;
   background-size: 44%;
 }
 .reel li#espresso-machine {
@@ -172,7 +172,7 @@
   background-size: 48%;
 }
 .reel li#espresso-beans {
-  background: url('../../images/espresso-beans.jpg') no-repeat 50% -200% #ffffff;
+  background: url('../../images/espresso-beans.jpg') no-repeat 50% 0% #ffffff;
   background-size: 44%;
 }
 .reel li .text {
