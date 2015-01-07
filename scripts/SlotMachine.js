@@ -1,4 +1,4 @@
-define(["jquery", "mustache", "underscore", "reel", "data"],
+define(["jquery", "mustache", "underscore", "ReelHolder", "data"],
     function($, Mustache, _, Reel, SlotData){
     var APP = function(rootElement) {
         this.reelData = SlotData;

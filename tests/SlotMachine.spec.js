@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "SlotMachine", "data", "Reel"],
+define(["jquery", "underscore", "SlotMachine", "data", "ReelHolder"],
 	function($, _, SlotMachine, slotData, Reel) {
 	describe("SlotMachine", function() {
 		var slotMachine,

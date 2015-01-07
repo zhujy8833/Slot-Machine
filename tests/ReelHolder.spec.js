@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "Reel", "ReelItem"],
+define(["jquery", "underscore", "ReelHolder", "ReelItem"],
 	function($, _, Reel, ReelItem){
 		describe("Reel", function(){
 			var reel,

@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "Reel"], function($, _, Reel) {
+define(["jquery", "underscore", "ReelHolder"], function($, _, Reel) {
     var ReelItem = function(options) {
         options = options || {};
         var properties = {
@@ -13,7 +13,6 @@ define(["jquery", "underscore", "Reel"], function($, _, Reel) {
             this[prop] = options[prop] || properties[prop];
         }
         this.currentTop = $(this.element).position().top;
-        this.previousTop = this.currentTop;
         this.currentPosition = this.itemIndex;
     };
 
@@ -29,9 +28,6 @@ define(["jquery", "underscore", "Reel"], function($, _, Reel) {
                 top : _self.currentTop
             }, 100, "linear", callback);
 
-        },
-        getElement : function() {
-            return this.element;
         },
         getItemIndex : function() {
             return this.itemIndex;
