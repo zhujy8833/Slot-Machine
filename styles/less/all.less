@@ -1,6 +1,22 @@
 @image-url : "../../images";
 @li-color : #FFFFFF;
-@ul-color : #6C6C6C;
+@ul-color-start : #fefcea;
+@ul-color-end : #f1da36;
+
+
+@-webkit-keyframes messageMove {.frames;}
+@-moz-keyframes messageMove {.frames;}
+@-ms-keyframes messageMove {.frames;}
+@-o-keyframes messageMove {.frames;}
+@keyframes messageMove {.frames;}
+
+.frames {
+    0%    {left: 100%;}
+    25%   {left: 50%;}
+    50%   {left: 0%;}
+    75%   {left: -50%;}
+    100%  {left: -100%;}
+}
 
 #slot-machine {
     width: 80%;
@@ -21,10 +37,13 @@
     height: 140px;
     overflow: hidden;
     position: relative;
-    background-color : @ul-color;
-    border-radius: 20px;
+    background: @ul-color-start; /* Old browsers */
+    background: -moz-linear-gradient(top, @ul-color-start 0%, @ul-color-end 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@ul-color-start), color-stop(100%,@ul-color-end)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, @ul-color-start 0%, @ul-color-end 100%); /* Chrome10+,Safari5.1+ */
+    border-radius: 10px;
     &:not(:first-child) {
-      margin-left: -5px;
+        margin-left: -4px;
     }
     li {
         text-transform: capitalize;
@@ -35,48 +54,48 @@
         margin-left: 30px;
         border-left: 3px inset lightgray;
         border-right: 3px inset lightgray;
-
+        border-radius: 70px;
 
         &#coffee-maker {
-            background: url('@{image-url}/coffee-maker.jpg') no-repeat 74px 5px @li-color;
-            background-size: 42%;
+            background: url('@{image-url}/coffee-maker.jpg') no-repeat 50% 5% @li-color;
+            background-size: 36%;
         }
         &#coffee-filter {
-            background: url('@{image-url}/coffee-filter.jpg') no-repeat 80px 3px @li-color;
+            background: url('@{image-url}/coffee-filter.jpg') no-repeat 50% -12% @li-color;
             background-size: 35%;
         }
         &#coffee-grounds {
-            background: url('@{image-url}/coffee-grounds.jpg') no-repeat 70px -1px @li-color;
+            background: url('@{image-url}/coffee-grounds.jpg') no-repeat 50% -60% @li-color;
             background-size: 42%;
         }
 
         &#tea-pot {
-            background: url('@{image-url}/tea-pot.jpg') no-repeat 68px 6px @li-color;
+            background: url('@{image-url}/tea-pot.jpg') no-repeat 50% 1% @li-color;
             background-size: 45%;
         }
 
         &#tea-strainer {
-            background: url('@{image-url}/tea-strainer.jpg') no-repeat 76px 3px @li-color;
+            background: url('@{image-url}/tea-strainer.jpg') no-repeat 56% -22% @li-color;
             background-size: 45%;
         }
 
         &#loose-tea {
-            background: url('@{image-url}/loose-tea.jpg') no-repeat 72px 10px @li-color;
+            background: url('@{image-url}/loose-tea.jpg') no-repeat 50% 2% @li-color;
             background-size: 44%;
         }
 
         &#espresso-machine {
-            background: url('@{image-url}/espresso-machine.jpg') no-repeat 84px 5px @li-color;
-            background-size: 40%;
+            background: url('@{image-url}/espresso-machine.jpg') no-repeat 52% 4% @li-color;
+            background-size: 37%;
         }
 
         &#espresso-tamper {
-            background: url('@{image-url}/espresso-tamper.jpg') no-repeat 62px 9px @li-color;
+            background: url('@{image-url}/espresso-tamper.jpg') no-repeat 50% 10% @li-color;
             background-size: 48%;
         }
 
         &#espresso-beans {
-            background: url('@{image-url}/espresso-beans.jpg') no-repeat 70px 1px @li-color;
+            background: url('@{image-url}/espresso-beans.jpg') no-repeat 50% -200% @li-color;
             background-size: 44%;
         }
 
@@ -91,8 +110,10 @@
     float: right;
     width: 60px;
     height: 60px;
-    border-radius: 33px;
+    border-radius: 16px;
+    font-style: bold;
     font-size: 1em;
+    font-weight: 800;
     outline: none;
     position: absolute;
     top: 56px;
@@ -100,6 +121,12 @@
     text-transform: uppercase;
     -webkit-transition: transform 0.1s linear;
     -moz-transition: transform 0.1s linear;
+
+    background: #b4e391; /* Old browsers */
+    background: -moz-linear-gradient(top, #b4e391 0%, #61c419 50%, #b4e391 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b4e391), color-stop(50%,#61c419), color-stop(100%,#b4e391)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #b4e391 0%,#61c419 50%,#b4e391 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #b4e391 0%,#61c419 50%,#b4e391 100%); /* Opera 11.10+ */
 
     &:hover {
         -webkit-transform : scale(1.1);
@@ -118,19 +145,34 @@
 
 
 #reward-message {
-    font-size: 1.5em;
-    color: rgba(255, 128, 82, 0.8)
-
+    min-height: 48px;
+    border: 3px inset gold;
+    background-color: #000000;
+    color: red;
+    font-size: 2em;
+    padding: 3px 0px;
+    width: 41%;
+    margin-left: 50%;
+    overflow: hidden;
+    position: relative;
+    span {
+      position: absolute;
+      white-space: nowrap;
+      &.rewarding {
+          -webkit-animation : messageMove 6s linear infinite;
+          animation : messageMove 6s linear infinite;
+      }
+    }
 }
 
 #reward-img {
-
+    float: left;
     &[data-reward=coffee] {
         background: url('@{image-url}/coffee.jpg') no-repeat 0px 0px transparent;
     }
 
     &[data-reward=tea] {
-        background: url('@{image-url}/tea.jpg') no-repeat 0px 0px transparent; 
+        background: url('@{image-url}/tea.jpg') no-repeat 0px 0px transparent;
     }
 
     &[data-reward=espresso] {
